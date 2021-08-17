@@ -10,3 +10,7 @@ please add your database info to config file /config/config.json
 `$ npx sequelize-cli db:seed:all`
 # run app 
 `$ npm start`
+
+# google sheet link 
+
+https://docs.google.com/spreadsheets/d/1rvjuH2KtDN1ZTJVqNIT44DYR2A0nOONrjuTKd2nJuHQ/edit#gid=0
