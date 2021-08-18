@@ -48,16 +48,14 @@ module.exports = {
    */
   async signin(req, res) {
     try {
-      
       let user = await User.findOne({ where: { email: req.body.email } });
       console.log(user);
       if (!user) {
         ApiResonse.setError('user not exist');
         return res.status(400).json(ApiResonse);
       }
-     // Get credentials from JSON body
-     let { email, password } = req.body;
- 
+      // Get credentials from JSON body
+      let { email, password } = req.body;
 
       if (!bcrypt.compareSync(password, user.password)) {
         ApiResonse.setError('error in password');
@@ -78,14 +76,10 @@ module.exports = {
       res.cookie('token', token, {
         maxAge: authsetting.setting.jwtExpiryMilleSeconds,
       });
-      //set token for user
-      // await User.update({ token: token }, { where: { id: user.id } });
+  
       let updateduser = await User.findOne({ where: { id: user.id } });
-
-      //  if(updateduser.id !== 108 && updateduser.id !== 170 ){  // for testing , to be removed in production:
       await User.update({ token: token }, { where: { id: user.id } });
       updateduser.token = token;
-      // }
       delete updateduser['dataValues'].password;
 
       ApiResonse.setSuccess('logged in');

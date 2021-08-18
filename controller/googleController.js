@@ -44,9 +44,6 @@ module.exports = {
           values: [[product_id, product_name, sold_quantity]],
         },
       });
-    
-
-      
     } catch (error) {
       console.log(error);
       return false;

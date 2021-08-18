@@ -2,9 +2,6 @@
   * factory design pattern 
   */
  class ApiResonse {
-     
-     
- 
   setSuccess(message){
       this.status=true;
       this.message=message;
@@ -21,8 +18,6 @@
      this.data=data;
      return this;
  }
- 
- 
  }
  
  module.exports = new ApiResonse();

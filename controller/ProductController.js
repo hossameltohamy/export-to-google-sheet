@@ -48,7 +48,7 @@ module.exports = {
     }
   },
   async SearchByName(req, res) {
-     const { name } = req.query;
+    const { name } = req.query;
     const product = await Product.findAll({
       where: {
         name: {

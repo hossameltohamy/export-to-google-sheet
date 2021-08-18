@@ -1,11 +1,11 @@
 'use strict';
-var { Order,Product,Order_items } = require('../models/'),
+var { Order, Product, Order_items } = require('../models/'),
   ApiResonse = require('../helper/ApiResponse');
 
 module.exports = {
   async GetAllOrders(req, res) {
     console.log('orders');
-     try {
+    try {
       const orders = await Order.findAll({
         include: [
           {
