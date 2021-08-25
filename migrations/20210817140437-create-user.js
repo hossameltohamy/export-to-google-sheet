@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       country_code: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       token: {
         type: Sequelize.STRING,

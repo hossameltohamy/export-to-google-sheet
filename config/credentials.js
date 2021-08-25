@@ -7,6 +7,5 @@ module.exports = {
   keyoptions: {
     algorithm: 'HS256',
     expiresIn: '30d',
-  }
- 
+  },
 };

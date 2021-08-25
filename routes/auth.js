@@ -1,4 +1,5 @@
 var AuthController = require('../controller/AuthController');
+const { checkRules, signupValidation } = require('../middlewares/validator');
 
 module.exports = function (Authroutes) {
   /**
@@ -62,7 +63,12 @@ module.exports = function (Authroutes) {
    *
    */
 
-  Authroutes.post('/Register', AuthController.Register);
+  Authroutes.post(
+    '/Register',
+    signupValidation,
+    checkRules,
+    AuthController.Register
+  );
   Authroutes.post('/SignIn', AuthController.signin);
 
   return Authroutes;

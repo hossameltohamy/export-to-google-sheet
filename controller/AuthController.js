@@ -2,9 +2,8 @@
 var { User } = require('../models/'),
   bcrypt = require('bcrypt'),
   jwt = require('jsonwebtoken'),
-  configFile = require('../config/config.json');
-
-var authsetting = require('../config/credentials'),
+  configFile = require('../config/config.json'),
+  authsetting = require('../config/credentials'),
   ApiResonse = require('../helper/ApiResponse');
 
 module.exports = {
@@ -12,33 +11,19 @@ module.exports = {
    * @param {*object} req
    * @param {*object} res
    */
-  async Register(req, res) {
-    if (
-      !req.body.full_name ||
-      !req.body.email ||
-      !req.body.country_code ||
-      !req.body.password ||
-      !req.body.phone
-    ) {
-      ApiResonse.setError('missing fields');
-      return res.status(400).json(ApiResonse);
-    }
-
+  async Register(req, res, next) {
     //hash password
     var hash = bcrypt.hashSync(req.body.password, 10);
     req.body.password = hash;
 
     try {
       var newuser = await User.create(req.body);
-
       ApiResonse.setSuccess('User Created Successfully');
-
       delete newuser['dataValues'].password;
       ApiResonse.setData(newuser);
       return res.status(200).json(ApiResonse);
     } catch (error) {
-      ApiResonse.setError('Error occured! please try again later ');
-      return res.status(500).json(ApiResonse);
+      next(error);
     }
   },
   /**
@@ -46,7 +31,7 @@ module.exports = {
    * @param {*object } req
    * @param {*object } res
    */
-  async signin(req, res) {
+  async signin(req, res, next) {
     try {
       let user = await User.findOne({ where: { email: req.body.email } });
       console.log(user);
@@ -76,7 +61,7 @@ module.exports = {
       res.cookie('token', token, {
         maxAge: authsetting.setting.jwtExpiryMilleSeconds,
       });
-  
+
       let updateduser = await User.findOne({ where: { id: user.id } });
       await User.update({ token: token }, { where: { id: user.id } });
       updateduser.token = token;

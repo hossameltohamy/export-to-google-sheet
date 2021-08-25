@@ -1,0 +1,9 @@
+{
+  "full_name_null_msg" : "Full Name Cannot be Empty",
+  "is_email_msg"   : "please enter valid email",
+  "email_null_msg" : "Email Cannot be Empty",
+  "phone_null_msg" : "Phone Cannot be Empty",
+  "password_length_msg" :"please enter your password at lease 6 letters",
+  "country_code_null_msg":"country Code Cannot Be Null",
+  "validation_exception": "validation faliures"
+}

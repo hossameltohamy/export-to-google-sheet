@@ -3,7 +3,7 @@ var { Order, Product, Order_items } = require('../models/'),
   ApiResonse = require('../helper/ApiResponse');
 
 module.exports = {
-  async GetAllOrders(req, res) {
+  async GetAllOrders(req, res, next) {
     console.log('orders');
     try {
       const orders = await Order.findAll({
@@ -30,7 +30,7 @@ module.exports = {
       return res.status(500).json(ApiResonse);
     }
   },
-  async create(req, res) {
+  async create(req, res, next) {
     try {
       const { user_id, products } = req.body;
       const order = await Order.create({ user_id: user_id, status: 'new' });

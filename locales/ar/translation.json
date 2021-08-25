@@ -1,0 +1,9 @@
+{
+  "full_name_null_msg" : "يجب ادخال الاسم ",
+  "is_email_msg"   : "يجب ادخال اميل صحيح",
+  "email_null_msg" : "يجب ٌدخال الاميل ",
+  "phone_null_msg" : "يجب آدخال الموبيل ",
+  "country_code_null_msg" : "رقم الدوله يجب ان يكون  به قيمه",
+  "validation_exception": "فالدشن ايرور"
+
+}
