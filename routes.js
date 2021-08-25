@@ -1,6 +1,6 @@
 var express = require('express');
 
-const Authroutes = require('./routes/Auth');
+const Authroutes = require('./routes/auth');
 const ProductsRoutes = require('./routes/products');
 const OrderRoutes = require('./routes/orders');
 const AuthMiddleWare = require('./middlewares/auth');
