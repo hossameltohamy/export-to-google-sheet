@@ -3,7 +3,11 @@ node {
     stage('prep') {
         git url: 'https://github.com/hossameltohamy/export-to-google-sheet.git'
     }
-
+ stage('install') {
+     nodejs(nodeJSInstallationName: 'nodejs') {
+       sh 'npm install --only=dev'
+     }
+   }
  
     stage('sonar-scanner') {
       def sonarqubeScannerHome = tool name: 'sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
