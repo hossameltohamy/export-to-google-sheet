@@ -5,6 +5,8 @@ node {
     }
  stage('install') {
      nodejs(nodeJSInstallationName: 'nodejs') {
+       sh 'node -v'
+       sh 'apt install nodejs'
        sh 'npm install --only=dev'
      }
    }
