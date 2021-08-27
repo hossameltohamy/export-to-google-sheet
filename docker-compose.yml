@@ -15,8 +15,8 @@ services:
       - PGDATABASE=nps_database
       - PGHOST=nsp_db # NAME OF THE SERVICE
     volumes: 
-      - .:/opt
-      - /opt/node_modules
+      - .:/app
+      - /app/node_modules
     depends_on:
       - nsp_db
   nsp_db:
