@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "test": "jest --watchAll",
-    "lint": "eslint . "
+       "lint": "eslint . "
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
