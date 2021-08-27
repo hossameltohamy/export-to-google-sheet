@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    stages {
         stage('clean previous docker containers') {
             steps {
                 sh 'docker-compose down -v'
@@ -29,7 +30,7 @@ pipeline {
         //     }
         // }
     }
-
+}
     // post {
     //     always {
     //         emailext (
