@@ -15,7 +15,7 @@ pipeline {
         stage('Tests') {
             steps {
                 sh 'docker-compose -f docker-compose.yml run --rm nsp_backend npx sequelize-cli db:migrate'
-                sh 'docker-compose -f docker-compose.yml run --rm nsp_backend npm test'
+                sh 'docker-compose -f docker-compose.yml run --rm nsp_backend npm test '
 
             }
         }

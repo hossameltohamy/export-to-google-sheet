@@ -153,8 +153,8 @@ describe('User Registeration', () => {
         phone: '01006907813',
       };
       const response = await PostUser(ValidUser, { language: 'en' });
-      console.log(Object.keys(response.body));
       expect(Object.keys(response.body)).toEqual(['status', 'message', 'data']);
     });
   });
 });
+// afterAll(() => setTimeout(() => process.exit(), 1000))

@@ -40,7 +40,7 @@ require('./routes')(app);
 /**
  * Cron Job Setup every monday at 7 clock
  **/
-require('./helper/cronjob');
+//require('./helper/cronjob');
 
 /**
  * catch 404 and forward to error handler
