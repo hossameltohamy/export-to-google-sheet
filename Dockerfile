@@ -1,4 +1,4 @@
-FROM node:14
+FROM node
 EXPOSE 3000
 # Use latest version of npm
 RUN npm i npm@latest -g
