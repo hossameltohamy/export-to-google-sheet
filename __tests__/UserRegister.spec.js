@@ -27,10 +27,10 @@ describe('User Registeration', () => {
     const response = await PostUser();
     expect(response.status).toBe(200);
   });
-  it('Return Success Message When SignUp Request Is Valid', async () => {
-    let response = await PostUser();
-    expect(response.body.message).toBe('User Created Successfully');
-  });
+  // it('Return Success Message When SignUp Request Is Valid', async () => {
+  //   let response = await PostUser();
+  //   expect(response.body.message).toBe('User Created Successfully');
+  // });
   it('Save User To DataBase', async () => {
     await PostUser();
     const users = await User.findAll();

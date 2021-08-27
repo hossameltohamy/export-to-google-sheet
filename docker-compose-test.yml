@@ -9,7 +9,7 @@ services:
       - "3000:3000"
     environment:
       - EXTERNAL_PORT=3000
-      - PGUSER=hossam
+      - PGUSER=francesco
       - PGPASSWORD=12345
       - PGDATABASE=test_database
       - PGHOST=nsp_db # NAME OF THE SERVICE
@@ -24,7 +24,7 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=hossam
+      - POSTGRES_USER=francesco
       - POSTGRES_PASSWORD=12345
       - POSTGRES_DB=test_database
     volumes:

@@ -20,24 +20,15 @@ build:
 
 up:
 		docker-compose -f ${DOCKER_COMPOSE_FILE} up -d $(c)
+test: 
+			docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm nsp_backend npm test
 
-migrate-dev: 
-		docker-compose -f ${DOCKER_COMPOSE_FILE}run --rm nsp_backend npx sequelize-cli db:migrate
+migrate: 
+		docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm nsp_backend npx sequelize-cli db:migrate
 
-drob-dev: 
-		docker-compose -f ${DOCKER_COMPOSE_FILE}run --rm nsp_backend npx sequelize-cli db:drop 
+drob: 
+		docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm nsp_backend npx sequelize-cli db:drop 
 
-create-test:
-		docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm nsp_backend npx sequelize-cli db:create  
-
-migrate-test: 
-		docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm nsp_backend   sequelize-cli db:migrate
-
-drob-test: 
-		docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm nsp_backend  sequelize-cli db:drop 
-create-test:
-		docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm nsp_backend    sequelize-cli db:create  
-	
 
 
 postgres: 
