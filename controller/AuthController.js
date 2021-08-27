@@ -2,7 +2,7 @@
 var { User } = require('../models/'),
   bcrypt = require('bcrypt'),
   jwt = require('jsonwebtoken'),
-  configFile = require('../config/config.json'),
+  configFile = require('../config/config'),
   authsetting = require('../config/credentials'),
   ApiResonse = require('../helper/ApiResponse');
 
