@@ -9,6 +9,7 @@ pipeline {
         }
         stage('clean previous docker containers') {
             steps {
+                sh ' ls -ahl'
                 sh ' docker-compose -v'
                 sh ' docker-compose down'
               }
