@@ -2,7 +2,6 @@ version: "3.8"
 services:
   nsp_backend:
     container_name: nsp_backend
-    # entrypoint: ["/bin/bash", "./entrypoint.sh"]
     image: hossamyahia107/export-to-google:0.0.2
     build:
       context: .
@@ -10,9 +9,9 @@ services:
       - "3000:3000"
     environment:
       - EXTERNAL_PORT=3000
-      - PGUSER=francesco
+      - PGUSER=hossam
       - PGPASSWORD=12345
-      - PGDATABASE=nps_database
+      - PGDATABASE=test_database
       - PGHOST=nsp_db # NAME OF THE SERVICE
     volumes: 
       - .:/opt
@@ -25,9 +24,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=francesco
+      - POSTGRES_USER=hossam
       - POSTGRES_PASSWORD=12345
-      - POSTGRES_DB=nps_database
+      - POSTGRES_DB=test_database
     volumes:
       - nps_data:/var/lib/postgresql/data
 volumes:
