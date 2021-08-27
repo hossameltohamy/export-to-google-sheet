@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh ' ls -ahl'
                 sh ' docker-compose -v'
-                sh ' docker-compose down'
+                sh ' docker-compose  --verbose  down'
               }
         }
         stage('Build') {
