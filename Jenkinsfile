@@ -52,7 +52,7 @@ pipeline {
                 subject: '${DEFAULT_SUBJECT}',
                 replyTo: '$DEFAULT_REPLYTO'    
                 )
-            }
+            
 
         }
     }
