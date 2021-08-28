@@ -32,20 +32,21 @@ pipeline {
                 sh 'docker-compose down -v'
               }
         }
-        // stage('Reports') {
-        //     steps {
-        //         junit 'tests/_output/report.xml'
-        //     }
-        // }
+        stage('Reports') {
+            steps {
+                junit 'tests/_output/report.xml'
+            }
+        }
+    }
+      post {
+        always {
+            emailext (
+                subject: "${env.JOB_NAME} CI",
+                body: '''${SCRIPT, template="groovy-html.template"}''',
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+            )
+        }
     }
 }
-    // post {
-    //     always {
-    //         emailext (
-    //             subject: "${env.JOB_NAME} CI",
-    //             body: '''${SCRIPT, template="groovy-html.template"}''',
-    //             recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-    //         )
-    //     }
-    // }
+  
 
