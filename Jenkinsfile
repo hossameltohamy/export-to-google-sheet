@@ -40,11 +40,20 @@ pipeline {
     }
       post {
         always {
-            emailext (
-                subject: "${env.JOB_NAME} CI",
+//             emailext (
+//                 subject: "${env.JOB_NAME} CI",
+//                 body: '''${SCRIPT, template="groovy-html.template"}''',
+//                 recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+//             )
+             emailext(
+                to: 'hossamyahia1017@gmail.com',
                 body: '''${SCRIPT, template="groovy-html.template"}''',
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-            )
+                mimeType: 'text/html',
+                subject: '${DEFAULT_SUBJECT}',
+                replyTo: '$DEFAULT_REPLYTO'    
+                )
+            }
+
         }
     }
 }
