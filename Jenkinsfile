@@ -1,11 +1,5 @@
 pipeline {
     agent any
-     def to = emailextrecipients([
-          [$class: 'CulpritsRecipientProvider'],
-          [$class: 'DevelopersRecipientProvider'],
-          [$class: 'RequesterRecipientProvider']
-  ])
-
     stages {
         
        stage('Source') {
@@ -46,13 +40,12 @@ pipeline {
     }
       post {
         always {
-           if(to != null && !to.isEmpty()) {
-      emailext(body: content, mimeType: 'text/html',
-         replyTo: '$DEFAULT_REPLYTO', subject: subject,
-         to: to, attachLog: true )
-              }
+            emailext (
+                subject: "${env.JOB_NAME} CI",
+                body: '''${SCRIPT, template="groovy-html.template"}''',
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+            )
         }
     }
 }
   
-
